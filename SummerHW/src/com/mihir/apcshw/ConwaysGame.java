@@ -12,17 +12,22 @@ public class ConwaysGame {
             { 0, 0, 0, 0, 0 }
         };
 
-        //Creates newGrid for the next generation.
-        int[][] newGrid = conwaysGame(startingGrid);
+        int[][] oldGrid = conwaysGame(startingGrid);
+        while(true){
+            //Creates newGrid for the next generation.
+            int[][] newGrid = conwaysGame(oldGrid);
+            oldGrid = newGrid;
 
-        //prints out the next generation.
-        for(int i = 0; i < newGrid.length; i++){
-            for(int j = 0; j < newGrid[0].length; j++){
-                if(newGrid[i][j] == 0){
-                    System.out.print("○" + " ");
-                } else {
-                    System.out.print("●" + " ");
+            //prints out the next generation.
+            for(int i = 0; i < newGrid.length; i++){
+                for(int j = 0; j < newGrid[0].length; j++){
+                    if(newGrid[i][j] == 0){
+                        System.out.print("○" + " ");
+                    } else {
+                        System.out.print("●" + " ");
+                    }
                 }
+                System.out.println();
             }
             System.out.println();
         }
