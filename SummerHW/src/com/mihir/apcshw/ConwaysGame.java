@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ConwaysGame {
 
     public static void main(String[] args){
+        //creates an initial grid
         int[][] startingGrid = { { 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0 },
             { 0, 1, 1, 1, 0 },
@@ -12,6 +13,8 @@ public class ConwaysGame {
             { 0, 0, 0, 0, 0 }
         };
 
+        //We create another grid here to get conwaysGame() to operate on the most recent
+        //grid.
         int[][] oldGrid = conwaysGame(startingGrid);
         while(true){
             //Creates newGrid for the next generation.
@@ -38,14 +41,17 @@ public class ConwaysGame {
         //new 2d array created.
         int[][] nextGen = new int[arr.length][arr[0].length];
 
+        //These first two nested for loops go through every element of the 2d array
         for(int row = 0; row < arr.length; row++){
             for(int col = 0; col < arr[0].length; col++){
 
                 int aliveCells = 0;
 
-                //finds number of alive cells.
+                //These next 2 nested for loops forms a 3*3 around the current cell
+                //and finds the number of alive cells.
                 for(int i = (row - 1); i <= (row + 1); i ++){
                     for(int j = (col - 1); j <= (col + 1); j++){
+                        //Checking to make sure it's in bounds
                         if(!((i < 0) || (j < 0) || (i >= arr.length) || (j >= arr[0].length))){
                             if((arr[i][j]) == 1){
                                 aliveCells += 1;
