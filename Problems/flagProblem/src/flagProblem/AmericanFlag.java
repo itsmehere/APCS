@@ -80,10 +80,10 @@ public class AmericanFlag extends JApplet {
 	public void drawStripes(Graphics g) {
 		g.setColor(Color.RED);
         g.fillRect(0, 0, (int)flag_width, (int)flag_height);
+        g.setColor(Color.WHITE);
         
         int ycor = (int)(stripe_height);
-
-        g.setColor(Color.WHITE);
+ 
         for (int i = 0; i < 6; i++) {
             g.fillRect(0, ycor, (int)(flag_width), (int)(stripe_height));
             ycor += 2 * stripe_height;
