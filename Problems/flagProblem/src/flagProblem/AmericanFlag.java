@@ -2,6 +2,12 @@ package flagProblem;
 
 //Flag starter kit
 
+/*
+* YOUR NAME HERE
+* YOUR PARTNER'S NAME HERE
+* OTHER PARTNER'S NAME (if group of three)
+*/
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -34,6 +40,7 @@ public class AmericanFlag extends JApplet {
 	private final double K = 0.0616;  // Diameter of star
 	private final double L = 0.0769;  // Width of stripe
 
+
 	// You will need to set values for these in paint()
 	private double flag_width;   // width of flag in pixels
 	private double flag_height;  // height of flag in pixels
@@ -49,61 +56,45 @@ public class AmericanFlag extends JApplet {
 
 	// paint() will be called every time a resizing of an applet occurs
 	public void paint(Graphics g) {
+		flag_width = getWidth();
+		flag_height = getHeight();
+
+		if ((B/A) * flag_height > flag_width) {  // Height too tall for length of display
+			flag_height = (flag_width / (B / A));
+		} else {                   // Length too tall for height of display
+			flag_width = (flag_height * (B / A));
+		}
+
+		stripe_height = (L * flag_height);
 		drawBackground(g);
 		drawStripes(g);
 		drawField(g);
 		drawStars(g);
 	}
 
-	// Draws the red background of the flag.
 	private void drawBackground(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(0, 0, (int)(B * getHeight()), (int)(A * getHeight()));
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, getWidth(), getHeight());
 	}
 	
-	//Draws the white stripes for the flag.
 	public void drawStripes(Graphics g) {
-		double ycor = (L * getHeight());
-		g.setColor(Color.WHITE);
-		
-		for(int i = 0; i < 6; i++) {
-			g.fillRect(0, (int)(ycor), (int)(B * getHeight()), (int)(L * getHeight()));
-			ycor += (L * getHeight()) + (L * getHeight());
-		}
+		g.setColor(Color.RED);
+        g.fillRect(0, 0, (int)flag_width, (int)flag_height);
+        
+        int ycor = (int)(stripe_height);
+
+        g.setColor(Color.WHITE);
+        for (int i = 0; i < 6; i++) {
+            g.fillRect(0, ycor, (int)(flag_width), (int)(stripe_height));
+            ycor += 2 * stripe_height;
+        }
 	}
 
-	// Draws the blue rectangle at the top left of the flag.
 	public void drawField(Graphics g) {
 		g.setColor(Color.BLUE);
-		g.fillRect(0, 0, (int)(D * getHeight()), (int)(C * getHeight()));
+		g.fillRect(0, 0, (int)(D * flag_height), (int)(C * flag_height));
 	}
 
-	// Draws the Stars on the flag.
 	public void drawStars(Graphics g) {
-		g.setColor(Color.WHITE);
-		int radius = (int)(K * getHeight())/2;
-		int xcor = (int)(G * getHeight()) - radius;
-		int ycor = (int)(E * getHeight()) - radius;
-		
-		for(int i = 0; i < 6; i++) {
-			for(int j = 0; j < 5; j++) {
-				g.fillOval(xcor, ycor, (int)(radius), (int)(radius));
-				ycor += (F * getHeight()) + (F * getHeight());
-			}
-			xcor += (H * getHeight()) + (H * getHeight());
-			ycor = (int)(E * getHeight()) - radius;
-		}
-		
-		xcor = (int)((G * getHeight()) + (H * getHeight())) - radius;
-		ycor = (int)((E * getHeight()) + (F * getHeight())) - radius;
-		
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 4; j++) {
-				g.fillOval(xcor, ycor, (int)(radius), (int)(radius));
-				ycor += (F * getHeight()) + (F * getHeight());
-			}
-			xcor += (H * getHeight()) + (H * getHeight());
-			ycor = (int)((E * getHeight()) + (F * getHeight())) - radius;
-		}
 	}
 }
