@@ -92,7 +92,7 @@ public class AmericanFlag extends JApplet {
 
 	public void drawField(Graphics g) {
 		g.setColor(Color.BLUE);
-		g.fillRect(0, 0, (int)(D * flag_height), (int)(C * flag_height));
+		g.fillRect(0, 0, (int)(D * flag_height), (int) (flag_height * C));
 	}
 
 	public void drawStars(Graphics g) {
