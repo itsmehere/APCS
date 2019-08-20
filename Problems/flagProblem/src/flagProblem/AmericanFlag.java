@@ -118,6 +118,5 @@ public class AmericanFlag extends JApplet {
             xcor += 2 * (H * flag_height);
             ycor = (E * flag_height) + (F * flag_height);
         }
-
     }
 }
