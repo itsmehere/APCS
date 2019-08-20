@@ -10,25 +10,9 @@ public class Star {
     double smallerR;
 
     public Star(Graphics g, double xcor, double ycor, double k) {
-        /* GENERAL WALKTHROUGH:
-         * 
-         * After graphing a right side up star in desmos using basic trigonometric functions,
-         * I realized that the orientation of the computer canvas was different. Rather than
-         * (0, 0) being at the bottom left of the screen, it was at the top right. This meant
-         * that in desmos, the star had to appear upside down for it to be right side up in
-         * code. I changed the starting values of cos and sin and could achieve this pretty easily.
-         * 
-         * HOW THE STAR WORKS:
-         * After learning basic basic and I mean BASIC trig functions, I was able to apply them in
-         * this problem. Using the unit circle, I found out that the x coordinate of an outer point
-         * would be centerX + cos(n), where 0<=n<=360. This would tell us the starting point and we could
-         * use the same unit circle principle that centerY + sin(q) would the y coordinate of that point
-         * (0<=q<=260). This concept also helped tremendously because I could now load the array using a for
-         * loop with much less effort.
-         * 
-         * -Mihir Rao
+        /*
+         * Mihir Rao
          */
-        
         
         xcord = xcor;
         ycord = ycor;
