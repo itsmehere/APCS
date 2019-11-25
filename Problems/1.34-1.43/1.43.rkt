@@ -1,0 +1,10 @@
+(define (repeated f n)
+  (lambda (x)
+   (define (rep-help num count)
+    (if (= count 1)
+        (f num)
+        (f (rep-help num (- count 1)))))
+    (rep-help x n)))
+  
+(define (square x)
+  (* x x))
