@@ -12,7 +12,7 @@ public class HeapSort {
 	public static void heapsort(int[] arr) {
 		int arrLength = arr.length;
 		
-		for(int i = arr.length - 1; i >= 0; i--) {
+		for(int i = arr.length - 1; i > 0; i--) {
 			
 			for(int j = (arr.length / 2) - 1; j >= 0; j--) {
 				heapify(arr, arrLength, j);
