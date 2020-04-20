@@ -13,11 +13,11 @@ public class main {
 				new Wildebeest(1900, "Mr. Fred") };
 				
 				printArray(animals);
-				
+				/*
 				for (Animal a : animals) {
 					a.eat(200);
 				}
-				
+				*/
 				Arrays.sort(animals);
 				System.out.println();
 				printArray(animals);
