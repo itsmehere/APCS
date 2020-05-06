@@ -56,19 +56,38 @@ public class Grid {
                               // documentation on ArrayList to see how sort(null) works
                               
     if(cardsInPlay > 12 || deck.size() == 0){
+      /*
+       * colToRemove tells us how far away the last column is.
+       * For example, in a board with 15 cards, the call to col(15-12) would return 1 telling us 
+       * that the third column(0 based) + 1 column is the one we have to consolidate.
+       *
+       * locationToReplace is useful when having a card which is in a set AND in the column that has to be removed.
+       * We only update locationToReplace when we have found a card in the column that is worth consolidating(isn't it the chosen set).
+       */
       int colToRemove = col(cardsInPlay - 12);
       int locationToReplace = 0;
+      
+      // Loop through the cards in the consolidating column.
       for(int i = 0; i < 3; i++){
+        
+        // Get the location of the first selected card in the set so we can replace it.
         int selectedCol = selectedLocs.get(locationToReplace).getCol();
         int selectedRow = selectedLocs.get(locationToReplace).getRow();
+        
+        // If the card in the column is not in selectedLocs, we want to move it to a selectedLocs position.
+        // Then, increment locationToReplace to move on to the next selectedLoc.
         if(!cardInSelected(3 + colToRemove, i, selectedLocs)){
           board[selectedCol][selectedRow] = board[3 + colToRemove][i];
           board[3 + colToRemove][i] = null;
           locationToReplace++;
         }
       }
+      
+      // Finally, decrease cardsInPlay by 3 and update currentCols to show the column has been consolidated.
       cardsInPlay -= 3;
       currentCols--;
+      
+      // If the cardsInPlay == 12, then replace the selected cards with new Cards from deck.deal();
     } else if (cardsInPlay == 12 && deck.size() != 0){
       for(int i = 0; i < 3; i++){
         Card a = deck.deal();
