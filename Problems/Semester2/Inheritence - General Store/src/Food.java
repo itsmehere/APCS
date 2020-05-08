@@ -14,7 +14,7 @@ public class Food extends Good{
 		return super.toString() + 
 		"Calories: " + calories + "\n";
 	}
-	
+
 	@Override
 	public double calcTax() {
 		return 0;
