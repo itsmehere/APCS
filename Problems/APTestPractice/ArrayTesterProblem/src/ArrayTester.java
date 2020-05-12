@@ -1,3 +1,5 @@
+import com.sun.xml.internal.bind.v2.TODO;
+
 public class ArrayTester
 {
 
@@ -15,16 +17,71 @@ public class ArrayTester
         return arr;
     }
 
-    // Main method to test getColumn method
-    public static void main(String[] args)
-    {
+    public static boolean hasAllValues(int[] arr1, int[] arr2){
+        if(arr1.length == arr2.length){
+            for(int i = 0; i < arr1.length; i++){
+                if(!contains(arr1[i], arr2)){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean contains(int value, int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == value){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean containsDuplicates(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                if((j != i) && (arr[j] == arr[i])){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean isLatin(int[][] square){
+        if(!containsDuplicates(square[0])){
+            for(int i = 0; i < square.length; i++){
+                if(!hasAllValues(square[0], square[i]) || !hasAllValues(square[0], getColumn(square, i))){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        // To test getColumn method
         int [][] arr2D = { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 }, { 9, 5, 3 } };
         int[] result = ArrayTester.getColumn(arr2D, 1);
+
         System.out.println("It should print the values from the second column: 1 4 7 5.");
-        for (int i = 0; i < result.length; i++)
-        {
+        for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + " ");
         }
-    } // end of main
+        System.out.println();
 
-} // end of class
+        // To test isLatin method
+        int [] [] arr2D2 = { { 1, 2, 3 }, { 2, 3, 1 }, { 3, 1, 2 }};
+        boolean test = isLatin(arr2D2);
+
+        System.out.println("If isLatin is implemented correctly, then test should be true.");
+        if (!test) {
+            System.out.print("Uh oh! isLatin(test) was false, but it should be true.");
+        } else {
+            System.out.println("YAY, isLatin works!");
+        }
+    }
+}
