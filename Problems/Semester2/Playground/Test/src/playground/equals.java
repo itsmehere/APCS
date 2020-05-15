@@ -1,7 +1,7 @@
 package playground;
 
 public class equals {
-    public static void main(String args[]){
+    public static void main(String[] args){
         String a = "apples";
         String b = a;
         String c = new String("apples");
