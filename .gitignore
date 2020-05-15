@@ -1,0 +1,12 @@
+.classpath
+*.class
+*.gif
+.idea
+.metadata
+.project
+.settings
+*.iml
+bin
+classes
+out.*
+*.properties
