@@ -8,5 +8,5 @@
 *.iml
 bin
 classes
-out.*
+out
 *.properties
