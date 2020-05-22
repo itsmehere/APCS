@@ -23,7 +23,7 @@ Let:
 `p` = x value of star's center  
 `q` = y value of star's center
 
-With this information, we can calculate the coordinate pair of the point `(x,y)`.
+With this information, we can find the ordered pair `(x,y)`.
 In the above example, the radius is `1` so `cos(θ)` is already the `x` value. Since we don't know the radius, 
 we have to multiply `cos(θ)` by `r` to get the length of the base. Then, we have to add `p` so the point 
 is positioned correctly relative to the center of the star.
