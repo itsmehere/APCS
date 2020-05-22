@@ -1,7 +1,7 @@
 # Drawing Stars
 
 A star's points are based on two circles. There is the outer circle, and the inner circle as shown below:
-![image](file:///C:/Users/mihir/Downloads/starimage.png)
+![image](https://upload.wikimedia.org/wikipedia/commons/9/9a/Pentagram_within_circle.svg)
 
 ## Degrees Between Two Neighboring Points
 Each point on the star is evenly spaced apart from its neighboring points which means that the angle
@@ -15,7 +15,7 @@ The top point will always be at `90°`. If we go clockwise, the angles we get ar
 4) `-126°`
 5) `-198°`
 
-![triangleImage](https://en.wikipedia.org/wiki/Trigonometric_functions#/media/File:Sinus_und_Kosinus_am_Einheitskreis_1.svg)
+![triangleImage](http://amsi.org.au/teacher_modules/D5/D5g1.png)
 
 Let:  
 `r` = radius  
