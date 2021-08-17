@@ -1,7 +1,5 @@
 package aptestpratice.arrayTesterProblem;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 public class ArrayTester
 {
 
